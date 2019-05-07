@@ -4,20 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $config['subclass_prefix'] = 'CMS_';
 
 $config['base_url'] = 'http://127.0.0.1/mvirtual/public_html/';
+$config['index_page'] = '';
 
 
-
-/*
-|--------------------------------------------------------------------------
-| Index File
-|--------------------------------------------------------------------------
-|
-| Typically this will be your index.php file, unless you've renamed it to
-| something else. If you are using mod_rewrite to remove the page set this
-| variable so that it is blank.
-|
-*/
-$config['index_page'] = 'index.php';
 
 /*
 |--------------------------------------------------------------------------
