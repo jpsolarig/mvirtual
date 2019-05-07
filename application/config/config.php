@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $config['subclass_prefix'] = 'CMS_';
 
 $config['base_url'] = 'http://127.0.0.1/mvirtual/public_html/';
+//$config['base_url'] = 'http://matervirtual.edu.pe/';
 $config['index_page'] = '';
 
 

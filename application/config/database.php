@@ -9,9 +9,14 @@ $db['default'] = array(
 	'hostname' => 'localhost',
 	'username' => 'root',
 	'password' => '',
-        //'username' => 'matervirtualedu_administrador',
+  //'username' => 'matervirtualedu_administrador',
 	//'password' => 'Arquit3ct02017**',
 	'database' => 'jpsystemas_administrador',
+  //'username' => 'matervirtualedu_administrador',
+	//'password' => 'Arquit3ct02017**',
+	//'database' => 'matervirtualedu_administrador',  
+    
+    
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
