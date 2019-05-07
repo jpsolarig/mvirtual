@@ -14,29 +14,8 @@
     <link rel="stylesheet" href="<?php echo base_url('librerias/datatables_bs/css/dataTables.bootstrap.min.css'); ?>">
     <link rel="stylesheet"  href="<?php echo base_url('css/AdminLTE.min.css'); ?>" >
     <link rel="stylesheet"  href="<?php echo base_url('css/skins/_all-skins.min.css'); ?>" >
-    <link rel="stylesheet"  href="<?php echo base_url('css/comun.css'); ?>" >
-     <link rel="stylesheet"  href="<?php echo base_url('css/nav-lista.css'); ?>" >
     <script>var baseURL="<?php echo base_url().$url ?>"</script>
     <script>var baseJS="<?php echo base_url() ?>"</script>
-   
-    <!--
-    <style>
-    .example-modal .modal {
-      position: relative;
-      top: auto;
-      bottom: auto;
-      right: auto;
-      left: auto;
-      display: block;
-      z-index: 1;
-    }
-
-    .example-modal .modal {
-      background: transparent !important;
-    }
-  </style>
-    -->
-    
   </head>    
   
 
