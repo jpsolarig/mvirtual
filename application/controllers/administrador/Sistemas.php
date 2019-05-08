@@ -108,7 +108,6 @@ class Sistemas extends CMS_Controller
       redirect($this->url);
   }
   
-  /*
   public function validar_pdf()
   {
     $controlador = $this->permisos_controlador($this->nomsis,$this->nommen,$this->nomsubmen,$this->estsubmen,$this->iderol);
@@ -135,7 +134,8 @@ class Sistemas extends CMS_Controller
     else
       redirect($this->url);
   }   
-    
+  
+/*  
   public function validar_act()
   {
     $controlador = $this->permisos_controlador($this->nomsis,$this->nommen,$this->nomsubmen,$this->estsubmen,$this->iderol);

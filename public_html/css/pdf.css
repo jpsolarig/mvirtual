@@ -1,0 +1,49 @@
+
+table{
+   border-spacing: 0px;
+}
+   
+#titulo{
+   color: #000;
+}
+
+#titulo_i {
+  border-left: #000 1px solid;
+  border-top: #000 1px solid;
+  border-bottom: #000 1px solid;
+  padding-left: 10px;
+}
+
+.titulo_m {
+  border-left: #000 1px solid;
+  border-top: #000 1px solid;
+  border-bottom: #000 1px solid;
+  padding-left: 10px;
+}
+
+#titulo_f {
+  border-left: #000 1px solid;
+  border-right: #000 1px solid;
+  border-top: #000 1px solid;
+  border-bottom: #000 1px solid;
+  padding-left: 10px;
+}
+
+#celda_i {
+  border-left: #000 1px solid;
+  border-bottom: #000 1px solid;
+  padding-left: 10px;
+}
+
+.celda_m {
+  border-left: #000 1px solid;
+  border-bottom: #000 1px solid;
+  padding-left: 10px;
+}
+
+#celda_f {
+  border-left: #000 1px solid;
+  border-right: #000 1px solid;
+  border-bottom: #000 1px solid;
+  padding-left: 10px;
+}

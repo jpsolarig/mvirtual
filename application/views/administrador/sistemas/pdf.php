@@ -3,7 +3,7 @@
   <table align="center" width="100%">
     <thead>
       <tr> 
-        <th colspan="2" id="imge"><img src="./imagenes/logo.jpg"></th> 
+        <th colspan="2" id="imge"><img src="../imagenes/logo.jpg"></th> 
         <th colspan="5" id="titulo"><h2><?php echo "Lista de ".$titulo; ?></h2></th>
       </tr>
       <tr>

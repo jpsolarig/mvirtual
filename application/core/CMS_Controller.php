@@ -44,7 +44,9 @@ class CMS_Controller extends CI_Controller
     return $this->permisos_m->permisos_controlador($nomsis,$nommen,$nomsubmen,$estsubmen,$iderol);
   }
   /*****##### FIN PERMISOS #####*****/
-     
+   
+  
+   /*****##### SELECIONAR #####*****/
   public function selected($objeto)
   {
     $objeto = json_decode(json_encode($objeto), true);
@@ -56,7 +58,88 @@ class CMS_Controller extends CI_Controller
     $objeto = json_decode(json_encode($objeto));
       return $objeto;
   }          
-     
+  
+  /*****##### CERAR PDF #####*****/
+  public function crearPdf($titulo,$direccion,$url,$data)
+  {
+    $this->load->library('html2pdf');
+    $this->createFolder();                      
+        
+    $this->html2pdf->folder('./pdf/');          
+    $this->html2pdf->filename($titulo.'.pdf');     
+    $this->html2pdf->paper('a4', $direccion);   
+    $this->html2pdf->html(utf8_decode($this->load->view($url.'/pdf', $data, true)));
+    if($this->html2pdf->create('save')) 
+    {
+      $this->show($titulo);
+                //$this->download($titulo);
+    }
+  }
+
+  public function createFolder()
+  {
+    if(!is_dir("./pdf"))
+    {
+      mkdir("./pdf", 0777);
+    }
+  }
+    
+    
+    public function show($titulo)
+    {
+        redirect(base_url("/pdf/".$titulo.".pdf"));
+        //$route = base_url("/pdf/".$titulo.".pdf"); 
+        // header('Content-type: application/pdf'); 
+        // readfile($route);
+    }        
+    
+    /*
+    public function download($titulo)
+    {
+        $name = strtolower($titulo.".pdf");
+        $route = base_url("/pdf/".$name); 
+        header('Cache-Control: public'); 
+        header('Content-Description: File Transfer'); 
+        header('Content-disposition: attachment; filename='.basename($route)); 
+        header('Content-Type: application/pdf'); 
+        header('Content-Transfer-Encoding: binary'); 
+        header('Content-Length: '. filesize($route)); 
+        readfile($route);
+    }       
+    
+    
+     public function correo_valido($correo)
+    {
+        $Sintaxis='#^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,6}$#';
+        if(preg_match($Sintaxis,$correo))
+            return true;
+        else
+            return false;
+    }
+    
+    /*
+    public function show($titulo)
+    {
+        if(is_dir("./pdf"))
+        {
+            $name = $titulo.".pdf";
+            $route = base_url("pdf/"); 
+            $data = file_get_contents($route.$name); 
+            force_download($name,$data); 
+            
+            //$route = base_url("pdf/".$titulo.".pdf"); 
+        //    if(file_exists("./pdf/".$titulo.".pdf"))
+        //    {
+               // header('Content-type: application/pdf'); 
+                //readfile($route);
+        //    }
+        }
+    }
+     * 
+     * 
+     */
+   
+   
      
 }
 
