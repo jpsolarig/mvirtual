@@ -1,7 +1,6 @@
 <section class="content-header nav-listas">
   <?php $this->load->view('administrador/nav_lista');?>
 </section>
-
 <section class="content sistemas">
   <div class="row">
     <div class="col-xs-12">
@@ -14,11 +13,9 @@
                 <th><span class="titp">SISTEMAS</span></th>
                 <th><span class="titp">DESCRIPCION</span></th>
                 <th><span class="titp">URL</span></th>
-                <!--
                 <th><span class="titp">ORDEN</span></th>
                 <th><span class="titp">COLOR</span></th>
                 <th><span class="titp">ICON</span></th>
-                -->
                 <?php $this->load->view('comun/nav_tabla'); ?>
               </tr>
             </thead>
@@ -29,11 +26,9 @@
                   <td><?php echo $lis[$x]->nomsis;?></td>
                   <td><?php echo $lis[$x]->dessis;?></td>
                   <td><?php echo $lis[$x]->urlsis;?></td>
-                  <!--
                   <td><?php echo $lis[$x]->ordsis;?></td>
                   <td class="<?php echo $lis[$x]->descol;?>"></td>
                   <td class=""><span class="<?php echo $lis[$x]->desico ?>"></span></td>
-                  
                   <?php  if ($peract == 1): ?>
                     <td class="tdact">
                       <a  class="ideact" href="" data-valor="<?php echo $lis[$x]->idesis;?>">
@@ -48,7 +43,6 @@
                       </a>    
                     </td>
                   <?php endif; ?>
-                  -->
                 </tr>
               <?php $i++;} ?>
             </tbody>

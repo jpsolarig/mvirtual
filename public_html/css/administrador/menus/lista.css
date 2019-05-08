@@ -1,0 +1,24 @@
+/*
+*{
+	border: 1px solid #555555;
+}
+*/
+
+.content-header.nav-listas
+{
+  padding-top: 15px;
+}
+
+
+div.dataTables_wrapper {
+  width: 900px;
+  margin: 0 auto;
+}
+
+
+.errores
+{
+  color: red;
+}
+
+

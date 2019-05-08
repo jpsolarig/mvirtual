@@ -29,7 +29,6 @@ class Sistemas extends CMS_Controller
     $submenus = $this->permisos_submenus_del_sistema($this->nomsis,$this->estsubmen,$this->iderol);
     $controlador = $this->permisos_controlador($this->nomsis,$this->nommen,$this->nomsubmen,$this->estsubmen,$this->iderol);
 
-    
     $col = $this->sistemas_m->listar_colores();
     $selcol = $this->selected($col);
     
@@ -53,22 +52,22 @@ class Sistemas extends CMS_Controller
       'perexp' => $controlador['perexp'],
       'peract' => $controlador['peract'],
       'pereli' => $controlador['pereli'],
-      
-      'csss' => array('css/'.$this->url.'bootstrap-colorpicker.min.css'),
-        
       'jss' => array(
         'js/'.$this->url.'exportar.js',
         'js/'.$this->url.'insertar.js',
         'js/'.$this->url.'actualizar.js',
-        'js/'.$this->url.'eliminar.js')
+        'js/'.$this->url.'eliminar.js'),
+      'csss' => array(
+        'css/'.$this->url.'lista.css'),  
     );
-            
+    
     if ($this->session->userdata('esta_conectado') && $sistema['estsis'] == TRUE && $controlador['estsubmen'] == TRUE) 
       $this->load->view('plantilla', $this->data);
     else
       redirect('escritorio');
   }
  
+  /*
   public function insertar()
   {
     $controlador = $this->permisos_controlador($this->nomsis,$this->nommen,$this->nomsubmen,$this->estsubmen,$this->iderol);
@@ -218,4 +217,6 @@ class Sistemas extends CMS_Controller
     else
       redirect($this->url);
   }    
+   * */
+   
 }
