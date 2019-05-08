@@ -47,7 +47,7 @@
       <?php  if (isset($selmen)): ?> 
       <div class="form-group">
         <label for="idemen" >Menus</label>
-        <select id="sel_menu" name="menus" class="form-control listara2 listara4" > 
+        <select id="sel_menu" name="menus" class="form-control listara2" > 
           <option value="T">TODOS</option>
           <?php for ($x=0; $x < count($selmen) ; $x++) {
             echo '<option value="',$selmen[$x]->idemen,'" ',$selmen[$x]->sel,'>',$selmen[$x]->nommen,'</option>';

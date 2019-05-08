@@ -1,0 +1,57 @@
+.content-header.nav-listas{
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.nav-lista h3{
+  margin-top: 0;
+}
+
+div.dataTables_wrapper {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.errores
+{
+  color: red;
+}
+
+.glyphicon-remove
+{
+  color: red;
+}
+
+.impresora
+{
+  color: yellowgreen;
+}
+
+.insertar
+{
+  color: blue;
+}
+
+.descarga
+{
+  color: #55acee;
+}
+
+.actualizar
+{
+  color: #f012be;
+}
+
+.eliminar
+{
+  color: green;
+}
+
+
+/*
+*{
+	border: 1px solid #555555;
+}
+*/
+
+
