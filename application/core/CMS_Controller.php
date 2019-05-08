@@ -93,6 +93,15 @@ class CMS_Controller extends CI_Controller
         // readfile($route);
     }        
     
+     public function correo_valido($correo)
+    {
+        $Sintaxis='#^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,6}$#';
+        if(preg_match($Sintaxis,$correo))
+            return true;
+        else
+            return false;
+    }
+    
     /*
     public function download($titulo)
     {
@@ -108,14 +117,7 @@ class CMS_Controller extends CI_Controller
     }       
     
     
-     public function correo_valido($correo)
-    {
-        $Sintaxis='#^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,6}$#';
-        if(preg_match($Sintaxis,$correo))
-            return true;
-        else
-            return false;
-    }
+    
     
     /*
     public function show($titulo)
