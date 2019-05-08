@@ -28,13 +28,10 @@ class Sistemas extends CMS_Controller
     $menus = $this->permisos_menus_del_sistemas($this->nomsis,$this->estmen,$this->iderol);
     $submenus = $this->permisos_submenus_del_sistema($this->nomsis,$this->estsubmen,$this->iderol);
     $controlador = $this->permisos_controlador($this->nomsis,$this->nommen,$this->nomsubmen,$this->estsubmen,$this->iderol);
-
     $col = $this->sistemas_m->listar_colores();
     $selcol = $this->selected($col);
-    
-    $ico = $this->sistemas_m->listar_iconos(1);
+    $ico = $this->sistemas_m->listar_iconos();
     $selico = $this->selected($ico);
-       
     $this->data = array(
       'url' => $this->url,
       'titulo' => $this->titulo,
@@ -67,7 +64,7 @@ class Sistemas extends CMS_Controller
       redirect('escritorio');
   }
  
-  /*
+ 
   public function insertar()
   {
     $controlador = $this->permisos_controlador($this->nomsis,$this->nommen,$this->nomsubmen,$this->estsubmen,$this->iderol);
@@ -111,6 +108,7 @@ class Sistemas extends CMS_Controller
       redirect($this->url);
   }
   
+  /*
   public function validar_pdf()
   {
     $controlador = $this->permisos_controlador($this->nomsis,$this->nommen,$this->nomsubmen,$this->estsubmen,$this->iderol);
@@ -163,6 +161,8 @@ class Sistemas extends CMS_Controller
       redirect($this->url);
   } 
     
+   /*
+  
   public function actualizar()
   {
     $controlador = $this->permisos_controlador($this->nomsis,$this->nommen,$this->nomsubmen,$this->estsubmen,$this->iderol);

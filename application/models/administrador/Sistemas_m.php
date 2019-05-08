@@ -24,22 +24,20 @@ class Sistemas_m extends CI_Model
     return $this->db->get()->result();     
   }
   
-  public function listar_iconos($ideico)
+  public function listar_iconos()
   {
     $this->db->select('ideico,desico');
     $this->db->from('iconos');
-    $this->db->where('iconos.ideico ='.$ideico);
     return $this->db->get()->result();     
   }
   
-  /*
   public function insertar_buscar_nombre($nomsis) 
   {
     if (empty($nomsis))
       return FALSE;
       return $this->db->where(array('nomsis' => $nomsis))->get('sistemas')->row();
   }   
-    
+  
   public function insertar($nomsis,$dessis,$urlsis,$ordsis,$idecol,$ideico)
   {
     $query = array(
@@ -55,7 +53,7 @@ class Sistemas_m extends CI_Model
       return true;
     return false;
   }
-    
+/*    
   public function actualizar($id) 
   {
     if (empty($id))
