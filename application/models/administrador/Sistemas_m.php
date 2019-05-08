@@ -53,7 +53,7 @@ class Sistemas_m extends CI_Model
       return true;
     return false;
   }
-/*    
+    
   public function actualizar($id) 
   {
     if (empty($id))
@@ -75,6 +75,7 @@ class Sistemas_m extends CI_Model
                         ->update('sistemas', $query);
   }
     
+ /* 
   public function eliminar_buscar_relacion($id) 
   {
     if (empty($id))

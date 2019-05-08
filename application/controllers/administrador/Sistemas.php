@@ -135,7 +135,6 @@ class Sistemas extends CMS_Controller
       redirect($this->url);
   }   
   
-/*  
   public function validar_act()
   {
     $controlador = $this->permisos_controlador($this->nomsis,$this->nommen,$this->nomsubmen,$this->estsubmen,$this->iderol);
@@ -161,8 +160,6 @@ class Sistemas extends CMS_Controller
       redirect($this->url);
   } 
     
-   /*
-  
   public function actualizar()
   {
     $controlador = $this->permisos_controlador($this->nomsis,$this->nommen,$this->nomsubmen,$this->estsubmen,$this->iderol);
@@ -176,14 +173,16 @@ class Sistemas extends CMS_Controller
       $idecol = $this->input->post('dato_6',TRUE);
       $ideico = $this->input->post('dato_7',TRUE);
             
-      if (empty($nomsis))
-        exit(json_encode(array('result'=>FALSE, 'mensaje'=>'Ingrese un sistema')));
       if (empty($dessis))
         exit(json_encode(array('result'=>FALSE, 'mensaje'=>'Ingrese una descripción')));
       if (empty($urlsis))
         exit(json_encode(array('result'=>FALSE, 'mensaje'=>'Ingrese una url')));
       if (empty($ordsis))
         exit(json_encode(array('result'=>FALSE, 'mensaje'=>'Ingrese un orden')));
+       if (empty($idecol))
+        exit(json_encode(array('result'=>FALSE, 'mensaje'=>'Por favor, ingrese una color')));
+      if (empty($ideico))
+        exit(json_encode(array('result'=>FALSE, 'mensaje'=>'Por favor, ingrese un icono')));
             
       $sistemas = $this->sistemas_m->grabar_actualizar($idesis,$nomsis,$dessis, $urlsis, $ordsis, $idecol, $ideico);
               
@@ -198,7 +197,7 @@ class Sistemas extends CMS_Controller
       else
         redirect($this->url);
   }
-    
+    /*
   public function eliminar()
   {
     $controlador = $this->permisos_controlador($this->nomsis,$this->nommen,$this->nomsubmen,$this->estsubmen,$this->iderol);
