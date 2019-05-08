@@ -23,7 +23,6 @@ $(function(){
           $("#dato_6").val(response.dato_6);
           $("#dato_7").val(response.dato_7);
           $("#dato_8").val(response.dato_8);
-          //$("#dato_9").val(response.dato_9);
         }
         else
         { 

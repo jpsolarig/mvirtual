@@ -75,7 +75,6 @@ class Sistemas_m extends CI_Model
                         ->update('sistemas', $query);
   }
     
- /* 
   public function eliminar_buscar_relacion($id) 
   {
     if (empty($id))
@@ -90,5 +89,5 @@ class Sistemas_m extends CI_Model
       return FALSE;
     return $this->db->where('idesis',$id)->delete('sistemas');
   }    
-  */
+ 
 }
