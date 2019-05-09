@@ -11,7 +11,7 @@
             <label for="idesis" ><i class="fa fa-plus-circle"></i> Sistemas</label>
             <select name="idesis" class="form-control">
               <option value="0" >SELECCIONAR</option>
-                <?php for ($x=0; $x < count($selsis) ; $x++) {
+                <?php for ($x=1; $x < count($selsis) ; $x++) {
                   echo '<option value="',$selsis[$x]->idesis,'" >',$selsis[$x]->nomsis,'</option>';
                 }?>
             </select>
@@ -29,7 +29,7 @@
             <select name="ideico" class="form-control">
               <option value="0" >SELECCIONAR</option>
               <?php for ($x=0; $x < count($selico) ; $x++) {
-                echo '<option class="',$selico[$x]->desico,'" value="',$selico[$x]->ideico,'" >',$selico[$x]->desico,'</option>';
+                echo '<option class="',$selico[$x]->nomico,'" value="',$selico[$x]->ideico,'" >',$selico[$x]->nomico,'</option>';
               }?>                                     
             </select>
           </div>     

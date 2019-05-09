@@ -37,8 +37,9 @@ class Menus_m extends CI_Model
   
   public function listar_iconos()
   {
-    $this->db->select('ideico,desico');
+    $this->db->select('ideico,nomico');
     $this->db->from('iconos');
+    $this->db->order_by("nomico", "asc");
     return $this->db->get()->result();     
   }
  

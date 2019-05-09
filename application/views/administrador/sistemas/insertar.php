@@ -37,7 +37,7 @@
             <select name="ideico" class="form-control">
               <option value="0" >SELECCIONAR</option>
               <?php for ($x=0; $x < count($selico) ; $x++) {
-                echo '<option class="',$selico[$x]->desico,'" value="',$selico[$x]->ideico,'" >',$selico[$x]->desico,'</option>';
+                echo '<option class="',$selico[$x]->nomico,'" value="',$selico[$x]->ideico,'" >',$selico[$x]->nomico,'</option>';
               }?>                                     
             </select>
           </div>   

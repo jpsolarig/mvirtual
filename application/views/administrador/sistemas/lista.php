@@ -15,7 +15,7 @@
                 <th><span class="titp">URL</span></th>
                 <th><span class="titp">ORDEN</span></th>
                 <th><span class="titp">COLOR</span></th>
-                <th><span class="titp">ICON</span></th>
+                <th><span class="ltitulo">ICONO</span></th>
                 <?php $this->load->view('comun/nav_tabla'); ?>
               </tr>
             </thead>

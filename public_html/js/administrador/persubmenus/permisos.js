@@ -1,7 +1,6 @@
 $(function(){
     $(".persubmenus").on('click', '.permiso',function(e)
     {
-      alert(48); 
       e.preventDefault();
        iderol = $(this).attr("iderol");
        idesis = $(this).attr("idesis");

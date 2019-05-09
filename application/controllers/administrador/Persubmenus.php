@@ -72,24 +72,20 @@ class Persubmenus extends CMS_Controller
           'perexp' => $controlador['perexp'],
           'peract' => $controlador['peract'],
           'pereli' => $controlador['pereli'],
-            'jss' => array(
+          'jss' => array(
             'js/'.$this->url.'lista1.js',
             'js/'.$this->url.'lista3.js',  
             'js/'.$this->url.'lista4.js',    
             'js/'.$this->url.'permisos.js',    
-              //      'js/'.$this->url.'exportar2.js',
-              //    'js/'.$this->url.'mensajes.js',
-              //    'js/'.$this->url.'insertar.js',
-              //    'js/'.$this->url.'actualizar1.js',
-              //    'js/'.$this->url.'eliminar.js'
-                
-            ),
-              'csss' => array(
-          'css/'.$this->url.'lista.css'), 
-        
-            // 'jss' => array('js/lista1.js','js/lista3.js','js/exportar2.js','js/llenar_menus.js','js/llenar_submenus.js','js/mensajes.js','js/insertar.js','js/permisos_submenus.js','js/eliminar.js')
-            //'jss' => array('js/lista1.js','js/lista2.js','js/exportar2.js','js/llenar_menus.js','js/mensajes.js','js/insertar.js','js/actualizar1.js','js/eliminar.js')
-             );
+            'js/'.$this->url.'llenar_menus.js',
+            'js/'.$this->url.'llenar_submenus.js',    
+            'js/'.$this->url.'insertar.js',    
+            'js/'.$this->url.'exportar2.js',
+            'js/'.$this->url.'mensajes.js',
+            'js/'.$this->url.'eliminar.js'),
+          'csss' => array(
+            'css/'.$this->url.'lista.css'), 
+        );
                 
          if ($this->session->userdata('esta_conectado') && $sistema['estsis'] == TRUE && $controlador['estsubmen'] == TRUE)
             $this->load->view('plantilla', $this->data);
@@ -162,20 +158,18 @@ class Persubmenus extends CMS_Controller
                     'peract' => $controlador['peract'],
                     'pereli' => $controlador['pereli'],
                     'jss' => array(
-        'js/'.$this->url.'lista1.js',
-        'js/'.$this->url.'lista3.js',  
-                        'js/'.$this->url.'permisos.js', 
-                        'js/'.$this->url.'lista4.js',
-                  //'js/'.$this->url.'exportar2.js',
-                  //'js/'.$this->url.'mensajes.js',
-                  //'js/'.$this->url.'insertar.js',
-                  //'js/'.$this->url.'actualizar1.js',
-                  //'js/'.$this->url.'eliminar.js'
-                        ),
-                      'csss' => array(
-          'css/'.$this->url.'lista.css'), 
-                    //'jss' => array('js/lista1.js','js/lista3.js','js/lista4.js','js/exportar2.js','js/llenar_menus.js','js/llenar_submenus.js','js/mensajes.js','js/insertar.js','js/permisos_submenus.js','js/eliminar.js'));
-                    //'jss' => array('js/lista1.js','js/lista3.js','js/exportar2.js','js/llenar_menus.js','js/mensajes.js','js/insertar.js','js/actualizar1.js','js/eliminar.js')
+            'js/'.$this->url.'lista1.js',
+            'js/'.$this->url.'lista3.js',  
+            'js/'.$this->url.'lista4.js',    
+            'js/'.$this->url.'permisos.js',    
+            'js/'.$this->url.'llenar_menus.js',
+            'js/'.$this->url.'llenar_submenus.js',    
+            'js/'.$this->url.'insertar.js',    
+            'js/'.$this->url.'exportar2.js',
+            'js/'.$this->url.'mensajes.js',
+            'js/'.$this->url.'eliminar.js'),
+          'csss' => array(
+            'css/'.$this->url.'lista.css'), 
                     );
                 
             if ($this->session->userdata('esta_conectado') && $sistema['estsis'] == TRUE && $controlador['estsubmen'] == TRUE)
@@ -258,16 +252,21 @@ class Persubmenus extends CMS_Controller
                     'perexp' => $controlador['perexp'],
                     'peract' => $controlador['peract'],
                     'pereli' => $controlador['pereli'],
-                    'jss' => array(
-                        'js/'.$this->url.'lista1.js',
-        'js/'.$this->url.'lista3.js',  
-                        'js/'.$this->url.'permisos.js', 
-                        'js/'.$this->url.'lista4.js',
-                        ),
-                    'csss' => array(
-          'css/'.$this->url.'lista.css'), 
+                   'jss' => array(
+            'js/'.$this->url.'lista1.js',
+            'js/'.$this->url.'lista3.js',  
+            'js/'.$this->url.'lista4.js',    
+            'js/'.$this->url.'permisos.js',    
+            'js/'.$this->url.'llenar_menus.js',
+            'js/'.$this->url.'llenar_submenus.js',    
+            'js/'.$this->url.'insertar.js',    
+            'js/'.$this->url.'exportar2.js',
+            'js/'.$this->url.'mensajes.js',
+            'js/'.$this->url.'eliminar.js'),
+          'csss' => array(
+            'css/'.$this->url.'lista.css'), 
                     );
-                    //'jss' => array('js/lista1.js','js/lista3.js','js/exportar2.js','js/llenar_menus.js','js/mensajes.js','js/insertar.js','js/actualizar1.js','js/eliminar.js'));
+                   
                 
             if ($this->session->userdata('esta_conectado') && $sistema['estsis'] == TRUE && $controlador['estsubmen'] == TRUE)
                 $this->load->view('plantilla', $this->data);
@@ -314,7 +313,7 @@ class Persubmenus extends CMS_Controller
                }
                $i++;
             }
-         $this->crearPdf($this->titulo, 'porlandscape', $this->url, $data);
+         $this->crearPdf($this->titulo, 'landscape', $this->url, $data);
       }
       else
          redirect($this->url);

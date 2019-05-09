@@ -21,6 +21,9 @@
                 <th><span class="titp fa fa-download"></span></th>
                 <th><span class="titp glyphicon glyphicon-pencil icon-titulo"></span></th>
                 <th><span class="titp glyphicon glyphicon-remove-sign icon-titulo"></span></th>
+                <?php  if ($pereli == TRUE): ?> 
+                  <th class="tdact"><span class="glyphicon glyphicon-remove-sign"></span></th>
+                <?php endif; ?>
               </tr>
             </thead>
             <tbody>
@@ -114,6 +117,13 @@
                   <a  class="permiso" permiso="eli" href="" iderol="<?php echo $lis[$x]->iderol;?>" idesubmen="<?php echo $lis[$x]->idesubmen;?>" idemen="<?php echo $lis[$x]->idemen;?>" idesis="<?php echo $lis[$x]->idesis;?>" estsubmen="<?php echo $lis[$x]->estsubmen;?>"  perimp="<?php echo $lis[$x]->perimp;?>" perins="<?php echo $lis[$x]->perins;?>" perexp="<?php echo $lis[$x]->perexp;?>" peract="<?php echo $lis[$x]->peract;?>" pereli="<?php echo $lis[$x]->pereli;?>">
                     <span class="glyphicon glyphicon-remove" data-toggle="tooltip" data-placement="top" title="No Eliminar"></span>
                   </a>
+                </td>
+                <?php endif; ?>
+                 <?php if ($pereli == 1): ?>
+                <td class="tdact">
+                  <a  class="ideeli" href="" data-toggle="modal" data-eli="<?php echo $lis[$x]->iderol;?>" data-eli2="<?php echo $lis[$x]->idesis;?>" data-eli3="<?php echo $lis[$x]->idemen;?>" data-eli4="<?php echo $lis[$x]->idesubmen;?>">
+                    <span class="glyphicon glyphicon-remove-sign"></span>
+                  </a>    
                 </td>
                 <?php endif; ?>
                 

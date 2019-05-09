@@ -11,7 +11,7 @@
                         <label for="iderol" >Roles</label>
                         <select name="iderol" class="form-control">
                             <option value="0" >SELECCIONAR</option>
-                            <?php for ($x=0; $x < count($selrol) ; $x++) {
+                            <?php for ($x=1; $x < count($selrol) ; $x++) {
                                     echo '<option value="',$selrol[$x]->iderol,'" >',$selrol[$x]->nomrol,'</option>';
                                   }
                             ?>
@@ -23,7 +23,7 @@
                         <label for="idesis" >Sistemas</label>
                         <select name="idesis" class="form-control sel_sis">
                             <option value="0" class="">SELECCIONAR</option>
-                            <?php for ($x=0; $x < count($selsis2) ; $x++) {
+                            <?php for ($x=1; $x < count($selsis2) ; $x++) {
                                     echo '<option value="',$selsis2[$x]->idesis,'">',$selsis2[$x]->nomsis,'</option>';
                                   }
                             ?>
@@ -38,7 +38,7 @@
                     </div>
                    
                     <div class="form-group">
-                        <label>Menus</label>
+                        <label>Sub Menus</label>
                         <select name="idesubmen" class="form-control sel_submenu" >
                             <option value="0">SELECCIONAR SUBMENU</option>
                         </select>
