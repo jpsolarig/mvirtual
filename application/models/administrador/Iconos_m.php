@@ -34,82 +34,51 @@ class Iconos_m extends CI_Model
       return false;
    }        
    
-  /*
-   
-  
-  /*
-  public function listar_categorias()
-  {
-    $this->db->select('idecatico,descatico');
-    $this->db->from('categorias_iconos');
-    return $this->db->get()->result();     
-  }
-   
-   public function listar_ide($ideare)
-   {
-      $this->db_s->select('ideamb,nomare,nomamb,desamb');
-      $this->db_s->from('t_ambientes');
-      $this->db_s->join('t_areas', 't_areas.ideare = t_ambientes.ideare');
-      $this->db_s->where('t_areas.ideare ='.$ideare);
-      $this->db_s->order_by('t_ambientes.nomamb', 'asc'); 
-      return $this->db_s->get()->result();       
-   }
-   
-   public function insertar_llenar_ambiente($ideare)
-   {
-      $this->db_s->select('ideamb,nomamb');
-      $this->db_s->from('t_ambientes');
-      $this->db_s->join('t_areas', 't_areas.ideare = t_ambientes.ideare');
-      $this->db_s->where('t_areas.ideare ='.$ideare);
-      $this->db_s->order_by('t_ambientes.nomamb', 'asc'); 
-      return $this->db_s->get()->result();       
-   }
-   
-   
-  
-    
-  
-   
    public function actualizar($id) 
-   {
-      if (empty($id))
-         return FALSE;
-      return $this->db_s->where(array('ideamb' => $id))->get('t_ambientes')->row();
-   }    
-    
-   public function grabar($ideamb,$ideare,$nomamb,$desamb) 
-   {
-      $query = array(
-         'ideare'=>$ideare,
-         'nomamb'=>strtoupper($nomamb),
-         'desamb'=>strtoupper($desamb));
-      return $this->db_s->where(array('ideamb' => $ideamb))
-         ->update('t_ambientes', $query);
-   }
-   
-   public function eliminar_buscar_relacion($ideamb) 
-   {
-        if (empty($ideamb))
+    {
+        if (empty($id))
             return FALSE;
-        return $this->db_s->where(array('ideamb' => $ideamb))->get('t_pcs')->row();
-   }
-   
-   public function eliminar($ideamb) 
-   {
-      if (empty($ideamb))
-         return FALSE;
-      return $this->db_s->where('ideamb',$ideamb)
-         ->delete('t_ambientes');
-   }    
-   
-   public function listar_ambientes($id)
-   {
-      $this->db_s->select('ideamb,nomamb');
-      $this->db_s->from('t_ambientes');
-      $this->db_s->where('t_ambientes.ideare ='.$id);
-      return $this->db_s->get()->result();  
-        //echo '<pre>'; print_r($this->db_s->get()->result()); return;
-   }
-    */
+        return $this->db->where(array('ideico' => $id))->get('iconos')->row();
+    }
+    
+    public function grabar_actualizar($ideico, $desico, $nomico) 
+    {
+      $query = array(
+      'desico'=>($desico),
+      'nomico'=>($nomico));
+      
+      return $this->db->where(array('ideico' => $ideico))
+                      ->update('iconos', $query);
+    }
+    
+    public function eliminar_buscar_relacion_sistemas($id) 
+    {
+      if (empty($id))
+        return FALSE;
+        return $this->db->where(array('ideico' => $id))->get('sistemas')->row();
+    }   
+    
+     public function eliminar_buscar_relacion_menus($id) 
+    {
+      if (empty($id))
+        return FALSE;
+        return $this->db->where(array('ideico' => $id))->get('menus')->row();
+       
+    }   
+    
+     public function eliminar_buscar_relacion_submenus($id) 
+    {
+      if (empty($id))
+        return FALSE;
+        return $this->db->where(array('ideico' => $id))->get('submenus')->row();
+    }   
+    
+    public function eliminar($id) 
+    {
+      if (empty($id))
+        return FALSE;
+      return $this->db->where('ideico',$id)->delete('iconos');
+    }    
+  
 }
 

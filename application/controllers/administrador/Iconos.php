@@ -82,44 +82,7 @@ class Iconos extends CMS_Controller
       }
    }
 
-   public function validar_pdf() 
-   {
-      $ideare = $this->input->post('ideare', TRUE);
-
-      if ($ideare)
-         exit(json_encode(array('result' => TRUE, 'id' => $ideare, 'mensaje' => 'Se registro correctamente')));
-      else
-         exit(json_encode(array('result' => FALSE, 'mensaje' => 'Seleccione una marca')));
-   }
-
-   public function pdf($ideare) 
-   {
-      $controlador = $this->permisos_controlador($this->nomsis, $this->nommen, $this->nomsubmen, $this->estsubmen, $this->iderol);
-      
-      if ($this->session->userdata('esta_conectado') && $controlador['perexp'] == TRUE) 
-      {
-         $areas = $this->areas_m->listar();
-            $i = 0;
-            for ($n = 1; $n <= count($areas); $n++) {
-               switch ($ideare) {
-                  case $n:
-                     $data = array(
-                        'titulo' => 'LISTA DE ' . strtoupper($this->titulo) . ' ' . $areas[$i]->nomare,
-                        'ambientes' => $this->ambientes_m->listar_ide($ideare));
-                  break;
-                  case 99:
-                     $data = array(
-                        'titulo' => 'LISTA DE ' . strtoupper($this->titulo),
-                        'ambientes' => $this->ambientes_m->listar());
-                  break;
-               }
-               $i++;
-            }
-         $this->crearPdf($this->titulo, 'porlandscape', $this->url, $data);
-      }
-      else
-         redirect($this->url);
-   }
+   
    
    public function insertar() 
    {
@@ -150,72 +113,107 @@ class Iconos extends CMS_Controller
    }
 
    
+   public function validar_pdf()
+  {
+    $controlador = $this->permisos_controlador($this->nomsis,$this->nommen,$this->nomsubmen,$this->estsubmen,$this->iderol);
+    if ($this->session->userdata('esta_conectado') && $controlador['perexp'] == TRUE) 
+    {
+      exit(json_encode(array('result'=>TRUE, 'titulo'=>strtolower($this->titulo))));
+    }
+    else
+      redirect($this->url);
+  }
+    
+  public function pdf()
+  {
+    $controlador = $this->permisos_controlador($this->nomsis,$this->nommen,$this->nomsubmen,$this->estsubmen,$this->iderol);
+        
+    if ($this->session->userdata('esta_conectado') && $controlador['perexp'] == TRUE) 
+    {
+      $data = array(
+        'titulo' => $this->titulo,
+        'lis' => $this->iconos_m->listar(),
+      );
+      $this->crearPdf(strtolower($this->titulo),'porlandscape',$this->url,$data);    
+    }
+    else
+      redirect($this->url);
+  }   
+   
 
-   public function validar_act() 
-   {
-      $controlador = $this->permisos_controlador($this->nomsis, $this->nommen, $this->nomsubmen, $this->estsubmen, $this->iderol);
+  public function validar_act()
+  {
+    $controlador = $this->permisos_controlador($this->nomsis,$this->nommen,$this->nomsubmen,$this->estsubmen,$this->iderol);
+        
+    if ($this->session->userdata('esta_conectado') && $controlador['peract'] == TRUE) 
+    {
+      $id = $this->input->post('id',TRUE);
+      $sistemas = $this->iconos_m->actualizar($id);
+              
+      if ($id) 
+        exit(json_encode(array(
+          'result'=>TRUE,
+          'dato_1'=>$sistemas->ideico,
+          'dato_2'=>$sistemas->desico,
+          'dato_3'=>$sistemas->nomico,
+            
+          'mensaje'=>'Se registro correctamente')));
+    }
+    else
+      redirect($this->url);
+  } 
+    
+  public function actualizar()
+  {
+    $controlador = $this->permisos_controlador($this->nomsis,$this->nommen,$this->nomsubmen,$this->estsubmen,$this->iderol);
+    if ($this->session->userdata('esta_conectado') && $controlador['peract'] == TRUE) 
+    {
+      $ideico = $this->input->post('dato_1',TRUE);
+      $desico = $this->input->post('dato_2',TRUE);
+      $nomico = $this->input->post('dato_3',TRUE);
       
-      if ($this->session->userdata('esta_conectado') && $controlador['peract'] == TRUE) {
-         $id = $this->input->post('id', TRUE);
-         $ambientes = $this->ambientes_m->actualizar($id);
-
-            if ($id)
-               exit(json_encode(array(
-                  'result' => TRUE,
-                  'dato_1' => $ambientes->ideamb,
-                  'dato_2' => $ambientes->ideare,
-                  'dato_3' => $ambientes->nomamb,
-                  'dato_4' => $ambientes->desamb,
-                  'mensaje' => 'Se registro correctamente')));
+      if (empty($desico))
+        exit(json_encode(array('result'=>FALSE, 'mensaje'=>'Ingrese una descripcion')));
+      $iconos = $this->iconos_m->grabar_actualizar($ideico,$desico,$nomico);
+              
+      if ($iconos) 
+        exit(json_encode(array(
+          'result'=>TRUE,
+          'mensaje'=>'Se grabo correctamente')));
+        else
+          exit(json_encode(array(
+          'mensaje'=>'Error al grabar')));
       }
       else
-         redirect($this->url);
-   }
-    
-   
-   public function actualizar() 
-   {
-      $controlador = $this->permisos_controlador($this->nomsis, $this->nommen, $this->nomsubmen, $this->estsubmen, $this->iderol);
-      if ($this->session->userdata('esta_conectado') && $controlador['peract'] == TRUE) 
-      {
-         $ideamb = $this->input->post('dato_1', TRUE);
-         $ideare = $this->input->post('dato_2', TRUE);
-         $nomamb = $this->input->post('dato_3', TRUE);
-         $desamb = $this->input->post('dato_4', TRUE);
-
-         if (empty($nomamb))
-            exit(json_encode(array('result' => FALSE, 'mensaje' => 'Ingrese un nombre de ambiente')));
-         if (empty($desamb))
-            exit(json_encode(array('result' => FALSE, 'mensaje' => 'Ingrese una descripcion de ambiente')));
-            
-         $areas = $this->ambientes_m->grabar($ideamb,$ideare, $nomamb, $desamb);
-
-         if ($areas)
-            exit(json_encode(array(
-               'result' => TRUE, 'ideare' => $ideare,
-               'mensaje' => 'Se grabo correctamente')));
-         else
-            exit(json_encode(array(
-               'mensaje' => 'Error al grabar')));
-        }
-        else
-         redirect($this->url);
-   }
+        redirect($this->url);
+  } 
 
    public function eliminar()
    {
       $controlador = $this->permisos_controlador($this->nomsis,$this->nommen,$this->nomsubmen,$this->estsubmen,$this->iderol);
       if ($this->session->userdata('esta_conectado') && $controlador['pereli'] == TRUE) 
       {
-         $ideamb = $this->input->post('eliide',TRUE);
+         $ideico = $this->input->post('eliide',TRUE);
             
-         if($this->ambientes_m->eliminar_buscar_relacion($ideamb))
-            exit(json_encode(array('result'=>FALSE,'mensaje'=>'No se puede eliminar tiene una relación.')));
+         if($this->iconos_m->eliminar_buscar_relacion_sistemas($ideico))
+            exit(json_encode(array('result'=>FALSE,'mensaje'=>'No se puede eliminar tiene una relación en la tabla sistemas.')));
          else
          {
-            $this->ambientes_m->eliminar($ideamb);
-            exit(json_encode(array('result'=>TRUE,'mensaje'=>'Se registro correctamente')));
-         }
+            if($this->iconos_m->eliminar_buscar_relacion_menus($ideico))
+              exit(json_encode(array('result'=>FALSE,'mensaje'=>'No se puede eliminar tiene una relación en la tabla menus.')));
+            
+            else 
+            {
+              if($this->iconos_m->eliminar_buscar_relacion_submenus($ideico))
+                exit(json_encode(array('result'=>FALSE,'mensaje'=>'No se puede eliminar tiene una relación en la tabla submenus.')));
+              else
+              {  
+                 $this->iconos_m->eliminar($ideico);
+                  exit(json_encode(array('result'=>TRUE,'mensaje'=>'Se elimino correctamente')));
+              }
+            }  
+         }  
+        
       }
       else
          redirect($this->url);

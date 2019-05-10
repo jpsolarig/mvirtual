@@ -2,7 +2,7 @@
   <?php $this->load->view('administrador/nav_lista');?>
 </section>
 
-<section class="content">
+<section class="content iconos">
   <div class="row">
     <div class="col-xs-12">
       <div class="box" style="width:90%; margin:0 auto;">
