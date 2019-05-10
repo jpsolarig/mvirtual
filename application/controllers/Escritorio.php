@@ -6,7 +6,7 @@ class Escritorio extends CMS_Controller
     parent::__construct();
     $this->data['titulo'] = config_item('nombre_sitio');
     $this->data['jss'] = array(); 
-    $this->data['csss'] = array(); 
+    $this->data['csss'] = array('css/escritorio.css'); 
   }
     
   public function index()

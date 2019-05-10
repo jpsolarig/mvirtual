@@ -78,7 +78,7 @@ class Colores extends CMS_Controller
     {
       $data = array(
         'titulo' => $this->titulo,
-        'lis' => $this->sistemas_m->listar(),
+        'lis' => $this->colores_m->listar(),
       );
       $this->crearPdf(strtolower($this->titulo),'porlandscape',$this->url,$data);    
     }
@@ -92,33 +92,19 @@ class Colores extends CMS_Controller
         
     if ($this->session->userdata('esta_conectado') && $controlador['perins'] == TRUE) 
     {
-      $nomsis  = $this->input->post('nomsis',TRUE);
-      $dessis = $this->input->post('dessis',TRUE);
-      $this->urlsis = $this->input->post('urlsis',TRUE);
-      $ordsis = $this->input->post('ordsis',TRUE);
-      $csssis = $this->input->post('csssis',TRUE);
-      $icosis = $this->input->post('icosis',TRUE);
-            
-      if (empty($nomsis))
-        exit(json_encode(array('result'=>FALSE, 'mensaje'=>'Por favor, ingrese un sistema')));
-      if (empty($dessis))
-        exit(json_encode(array('result'=>FALSE, 'mensaje'=>'Por favor, ingrese una descripción')));
-      if (empty($this->urlsis))
-        exit(json_encode(array('result'=>FALSE, 'mensaje'=>'Por favor, ingrese una url')));
-      if (empty($ordsis))
-        exit(json_encode(array('result'=>FALSE, 'mensaje'=>'Por favor, ingrese una orden')));
-      if (empty($csssis))
-        exit(json_encode(array('result'=>FALSE, 'mensaje'=>'Por favor, ingrese una color')));
-      if (empty($icosis))
-        exit(json_encode(array('result'=>FALSE, 'mensaje'=>'Por favor, ingrese un icono')));
+      $descol  = $this->input->post('descol',TRUE);
+                  
+      if (empty($descol))
+        exit(json_encode(array('result'=>FALSE, 'mensaje'=>'Por favor, ingrese un color')));
+      
            
-      if($this->sistemas_m->insertar_buscar_nombre($nomsis))
+      if($this->colores_m->insertar_buscar_nombre($descol))
       {
-        exit(json_encode(array('result'=>FALSE, 'mensaje'=>'Ya existe el sistema')));
+        exit(json_encode(array('result'=>FALSE, 'mensaje'=>'Ya existe el color')));
       }
       else
       {
-        $resultado = $this->sistemas_m->insertar($nomsis,$dessis,$this->urlsis,$ordsis,$csssis,$icosis);
+        $resultado = $this->colores_m->insertar($descol);
         if ($resultado) 
           exit(json_encode(array('result'=>TRUE, 'mensaje'=>'Se registro correctamente !!!')));	
         else
@@ -136,18 +122,14 @@ class Colores extends CMS_Controller
     if ($this->session->userdata('esta_conectado') && $controlador['peract'] == TRUE) 
     {
       $id = $this->input->post('id',TRUE);
-      $sistemas = $this->sistemas_m->actualizar($id);
+      $sistemas = $this->colores_m->actualizar($id);
               
       if ($id) 
         exit(json_encode(array(
           'result'=>TRUE,
-          'dato_1'=>$sistemas->idesis,
-          'dato_2'=>$sistemas->nomsis,
-          'dato_3'=>$sistemas->dessis,
-          'dato_4'=>$sistemas->urlsis,
-          'dato_5'=>$sistemas->ordsis,
-          'dato_6'=>$sistemas->csssis,
-          'dato_7'=>$sistemas->icosis,
+          'dato_1'=>$sistemas->idecol,
+          'dato_2'=>$sistemas->descol,
+          
           'mensaje'=>'Se registro correctamente')));
     }
     else
@@ -159,26 +141,13 @@ class Colores extends CMS_Controller
     $controlador = $this->permisos_controlador($this->nomsis,$this->nommen,$this->nomsubmen,$this->estsubmen,$this->iderol);
     if ($this->session->userdata('esta_conectado') && $controlador['peract'] == TRUE) 
     {
-      $idesis = $this->input->post('dato_1',TRUE);
-      $nomsis = $this->input->post('dato_2',TRUE);
-      $dessis = $this->input->post('dato_3',TRUE);
-      $urlsis = $this->input->post('dato_4',TRUE);
-      $ordsis = $this->input->post('dato_5',TRUE);
-      $csssis = $this->input->post('dato_6',TRUE);
-      $icosis = $this->input->post('dato_7',TRUE);
-            
-      if (empty($nomsis))
-        exit(json_encode(array('result'=>FALSE, 'mensaje'=>'Ingrese un sistema')));
-      if (empty($dessis))
-        exit(json_encode(array('result'=>FALSE, 'mensaje'=>'Ingrese una descripción')));
-      if (empty($urlsis))
-        exit(json_encode(array('result'=>FALSE, 'mensaje'=>'Ingrese una url')));
-      if (empty($ordsis))
-        exit(json_encode(array('result'=>FALSE, 'mensaje'=>'Ingrese un orden')));
-            
-      $sistemas = $this->sistemas_m->grabar_actualizar($idesis,$nomsis,$dessis, $urlsis, $ordsis, $csssis, $icosis);
+      $idecol = $this->input->post('dato_1',TRUE);
+      $descol = $this->input->post('dato_2',TRUE);
+      if (empty($descol))
+        exit(json_encode(array('result'=>FALSE, 'mensaje'=>'Ingrese un color')));
+      $colores = $this->colores_m->grabar_actualizar($idecol,$descol);
               
-      if ($sistemas) 
+      if ($colores) 
         exit(json_encode(array(
           'result'=>TRUE,
           'mensaje'=>'Se grabo correctamente')));
@@ -190,18 +159,18 @@ class Colores extends CMS_Controller
         redirect($this->url);
   }
     
-  public function eliminar()
+ public function eliminar()
   {
     $controlador = $this->permisos_controlador($this->nomsis,$this->nommen,$this->nomsubmen,$this->estsubmen,$this->iderol);
     if ($this->session->userdata('esta_conectado') && $controlador['pereli'] == TRUE) 
     {
       $id = $this->input->post('eliide',TRUE);
             
-      if($this->sistemas_m->eliminar_buscar_relacion($id))
+      if($this->colores_m->eliminar_buscar_relacion($id))
         exit(json_encode(array('result'=>FALSE,'mensaje'=>'No se puede eliminar tiene una relación.')));
       else
       {
-        $this->sistemas_m->eliminar($id);
+        $this->colores_m->eliminar($id);
         exit(json_encode(array('result'=>TRUE,'mensaje'=>'Se registro correctamente')));
       }
     }

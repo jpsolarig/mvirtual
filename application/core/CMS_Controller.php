@@ -102,7 +102,6 @@ class CMS_Controller extends CI_Controller
             return false;
     }
     
-    /*
     public function download($titulo)
     {
         $name = strtolower($titulo.".pdf");
@@ -115,6 +114,9 @@ class CMS_Controller extends CI_Controller
         header('Content-Length: '. filesize($route)); 
         readfile($route);
     }       
+    
+    /*
+    
     
     
     

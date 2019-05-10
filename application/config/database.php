@@ -7,15 +7,10 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-  'database' => 'jpsystemas_administrador',
-  //'username' => 'matervirtualedu_administrador',
-	//'password' => 'Arquit3ct02017**',
-	//'database' => 'matervirtualedu_administrador',  
-    
-    
-	'dbdriver' => 'mysqli',
+  'username' => 'matervirtualedu_administrador',
+	'password' => 'Arquit3ct02017**',  
+	'database' => 'matervirtualedu_administrador',  
+  'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => TRUE,

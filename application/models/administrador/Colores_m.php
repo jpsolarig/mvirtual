@@ -16,24 +16,17 @@ class Colores_m extends CI_Model
     }
    
     
-    public function insertar_buscar_nombre($nomsis) 
+    public function insertar_buscar_nombre($descol) 
     {
-        if (empty($nomsis))
+        if (empty($descol))
             return FALSE;
-        return $this->db->where(array('nomsis' => $nomsis))->get('sistemas')->row();
+        return $this->db->where(array('descol' => $descol))->get('colores')->row();
     }   
     
-    public function insertar($nomsis,$dessis,$urlsis,$ordsis,$csssis,$icosis)
+    public function insertar($descol)
     {
-        $query = array(
-            'nomsis'=>ucwords(strtolower($nomsis)),
-            'dessis'=>$dessis,
-            'urlsis'=>$urlsis,
-            'ordsis'=>$ordsis,
-            'csssis'=>$csssis,
-            'icosis'=>$icosis,
-        );
-        $resultado = $this->db->insert('sistemas', $query);
+        $query = array('descol'=>$descol);
+        $resultado = $this->db->insert('colores', $query);
         if ($resultado)
             return true;
         return false;
@@ -43,37 +36,28 @@ class Colores_m extends CI_Model
     {
         if (empty($id))
             return FALSE;
-        return $this->db->where(array('idesis' => $id))->get('sistemas')->row();
+        return $this->db->where(array('idecol' => $id))->get('colores')->row();
     }
     
-    public function grabar_actualizar($idesis, $nomsis, $dessis, $urlsis, $ordsis, $csssis,$icosis ) 
+    public function grabar_actualizar($idecol, $descol) 
     {
-        $query = array(
-            'nomsis'=>ucfirst(strtolower($nomsis)),
-            'dessis'=>ucfirst(strtolower($dessis)),
-            'urlsis'=>strtolower($urlsis),
-            'ordsis'=>$ordsis,
-            'csssis'=>$csssis,
-            'icosis'=>$icosis,
-        );
-        return $this->db->where(array('idesis' => $idesis))
-                        ->update('sistemas', $query);
+      $query = array('descol'=>$descol);
+      return $this->db->where(array('idecol' => $idecol))
+                      ->update('colores', $query);
     }
     
-    public function eliminar_buscar_relacion($id) 
-    {
-        if (empty($id))
-            return FALSE;
-        return $this->db->where(array('idesis' => $id))->get('menus')->row();
-        return $this->db->where(array('idesis' => $id))->get('permisos_sistemas')->row();
-    }   
+  public function eliminar_buscar_relacion($id) 
+  {
+    if (empty($id))
+      return FALSE;
+    return $this->db->where(array('idecol' => $id))->get('sistemas')->row();
+  }   
     
-    public function eliminar($id) 
-    {
-        if (empty($id))
-            return FALSE;
-        return $this->db->where('idesis',$id)
-		->delete('sistemas');
-    }    
+  public function eliminar($id) 
+  {
+    if (empty($id))
+      return FALSE;
+    return $this->db->where('idecol',$id)->delete('colores');
+  }    
   
 }
