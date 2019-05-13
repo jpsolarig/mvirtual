@@ -11,7 +11,7 @@ class Iconos_m extends CI_Model
   {
     $this->db->select('ideico,desico,nomico');
     $this->db->from('iconos');
-    //$this->db->order_by("t_ambientes.nomamb", "asc"); 
+    $this->db->order_by("iconos.nomico", "asc"); 
     return $this->db->get()->result();     
   }
    
@@ -25,8 +25,8 @@ class Iconos_m extends CI_Model
    public function insertar($desico, $nomico)
    {
       $query = array(
-         'desico'=>strtoupper($desico),
-         'nomico'=>strtoupper($nomico));
+         'desico'=>($desico),
+         'nomico'=>($nomico));
         
       $resultado = $this->db->insert('iconos', $query);
       if ($resultado)

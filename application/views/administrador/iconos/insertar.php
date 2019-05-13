@@ -9,12 +9,12 @@
         <form action="" method="POST" role="form" autocomplete="off">
           <div class="form-group has-success input-group-sm">
             <label for=""><i class="fa fa-plus-circle"></i> Descripción del Icono</label>
-            <input name="desico" id="desico" type="text" maxlength="15" class="form-control" placeholder="Descripción del icono">
+            <input name="desico" id="desico" type="text" maxlength="30" class="form-control" placeholder="Descripción del icono">
           </div>
           
           <div class="form-group has-success input-group-sm ">
             <label for=""><i class="fa fa-plus-circle"></i> Nombre del Icono</label>
-            <input name="nomico" id="nomico" type="text" maxlength="15" class="form-control" placeholder="Nombre del icono" autofocus="">
+            <input name="nomico" id="nomico" type="text" maxlength="30" class="form-control" placeholder="Nombre del icono" autofocus="">
           </div>
           
           

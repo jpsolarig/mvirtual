@@ -1,21 +1,24 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
-class Submenus extends CMS_Controller 
+class Personas extends CMS_Controller 
 {
   public function __construct() 
   {
     parent::__construct();
-    $this->titulo = 'SubMenus';
-    $this->nomsis = 'Administrador';
-    $this->nommen = 'Admin';
-    $this->nomsubmen = 'SubMenus';
+    $this->titulo = 'Personas';
+    $this->nomsis = 'Asistencias';
+    $this->nommen = 'Personal';
+    $this->nomsubmen = 'Personas';
     $this->estsis = TRUE;
     $this->estmen = TRUE;
     $this->estsubmen = TRUE;
     $this->iderol = $this->session->userdata('iderol');
-    $this->load->model('administrador/sistemas_m');
-    $this->load->model('administrador/menus_m');
-    $this->load->model('administrador/submenus_m');
-    $this->url = "administrador/submenus/";
+    //$this->load->model('administrador/sistemas_m');
+    //$this->load->model('administrador/menus_m');
+    //$this->load->model('administrador/submenus_m');
+    
+    $this->load->model('asistencias/personas_m');
+    
+    $this->url = "asistencias/personas/";
   }
    
   public function index() 
@@ -32,17 +35,21 @@ class Submenus extends CMS_Controller
 
     $ide = $this->input->post('ide', TRUE);
       
-    $sis = $this->submenus_m->listar_sistemas();
-    $selsis = $this->selected($sis);
-
-    foreach ($selsis as $value) {
-      if ($value->idesis === $valor)
+    $are = $this->personas_m->listar_areas();
+    $selare = $this->selected($are);
+    
+    
+    foreach ($selare as $value) {
+      if ($value->ideare === $valor)
         $value->sel = 'selected';
     }
     
+    /*
     $ico = $this->submenus_m->listar_iconos();
     $selico = $this->selected($ico);
+    */
     
+    /*
     $selmen = NULL;
     $valor2 = NULL;
       
@@ -58,14 +65,16 @@ class Submenus extends CMS_Controller
           $value->sel = 'selected';
       }
     }  
-      
+     */ 
+     
+     
     if ($ide)
       exit(json_encode(array('result' => TRUE, 'ide' => $ide)));
     else {
       if ($valor == "T")
-        $lista = $this->submenus_m->listar();
+        $lista = $this->personas_m->listar();
       else
-        $lista = $this->submenus_m->listar_ide($valor);
+        $lista = $this->personas_m->listar_ide($valor);
             
       $this->data = array(
         'url' => $this->url,
@@ -73,9 +82,9 @@ class Submenus extends CMS_Controller
         'menus' => $menus,
         'submenus' => $submenus,
         'lis' => $lista,
-        'selsis' => $selsis,
-        'selmen' => $selmen,
-        'selico' => $selico,
+        'selare' => $selare,
+        //'selmen' => $selmen,
+        //'selico' => $selico,
         'lista' => $this->url . 'lista',
         'insertar' => $this->url . 'insertar',
         'exportar' => $this->url . 'exportar',
