@@ -1,5 +1,5 @@
 <section class="content-header nav-listas">
-  <?php $this->load->view('administrador/nav_lista');?>
+  <?php $this->load->view('asistencias/nav_lista');?>
 </section>
 
 <section class="content iconos">
