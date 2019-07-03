@@ -5,7 +5,6 @@ var ide3 = "";
 $(function(){
     $(".usuarios").on('click', '.ideeli',function(e)
     {
-       alert(1);
        e.preventDefault();
        ide = $(this).attr("data-eli");
        ide2 = $(this).attr("data-eli2");

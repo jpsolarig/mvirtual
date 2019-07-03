@@ -1,8 +1,14 @@
 <?php $this->load->view('comun/head'); ?>
-
-<body class="">
-<div class="escritorio">
-  <section class="invoice bg-teal" >
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+  
+  <?php $this->load->view('comun/header'); ?>
+  
+  <?php $this->load->view('comun/siderbar'); ?>
+  
+  <div class="content-wrapper">
+  	
+	
     <div class="row" >
       <?php foreach ($sistemas as $key => $sistema): ?> 
       <div class="col-lg-3 col-xs-12">
@@ -37,21 +43,11 @@
         </div>    
       </div>
     </div>        
-  </section>
-</div>    
-<?php $this->load->view('comun/footer'); ?>
-
-
-
-
-
-    
-
-   
-    
-
-
   
+  </div>
 
+  <?php $this->load->view('comun/pie'); ?>
 
+</div>  
 
+<?php $this->load->view('comun/footer'); ?>

@@ -4,15 +4,11 @@
 }
 */
 
-.escritorio .invoice{
-    margin-top: 150px;
-    padding-top: 50px;
-    height: 350px;
-    padding-top: auto;
-    padding-bottom: auto;
-}
-
-.escritorio .invoice .info-box{
+.info-box{
+  margin-left: 20px;
+  margin-top: 20px;
   margin-bottom: 50px; 
 }
+
+
 
