@@ -108,29 +108,7 @@ class Areas extends CMS_Controller
     }
     else { redirect($this->url); }
   }   
-  /*
-  * public function pdf()
-  {
-    $controlador = $this->permisos_controlador($this->nomsis,$this->nommen,$this->nomsubmen,$this->estsubmen,$this->iderol);
-        
-    if ($this->session->userdata('esta_conectado') && $controlador['perexp'] == TRUE) 
-    {
-      $data = array(
-        'titulo' => $this->titulo,
-        'lis' => $this->sistemas_m->listar(),
-      );
-      $this->crearPdf(strtolower($this->titulo),'landscape',$this->url,$data);    
-    }
-    else
-      redirect($this->url);
-  }   
-  * 
-  *   
-  * 
-  * 
-  * 
-  */
-  /*
+  
   public function validar_act()
   {
     $controlador = $this->permisos_controlador($this->nomsis,$this->nommen,$this->nomsubmen,$this->estsubmen,$this->iderol);
@@ -142,25 +120,25 @@ class Areas extends CMS_Controller
         exit(json_encode(array(
           'result'=>TRUE,
           'dato_1'=>$areas->ideare,
-          'dato_2'=>$areas->nomare,
+          'dato_2'=>$areas->desare,
           'mensaje'=>'Se registro correctamente')));
     }
     else
       redirect($this->url);
   } 
-   
+  
   public function actualizar()
   {
     $controlador = $this->permisos_controlador($this->nomsis,$this->nommen,$this->nomsubmen,$this->estsubmen,$this->iderol);
     if ($this->session->userdata('esta_conectado') && $controlador['peract'] == TRUE) 
     {
       $ideare = $this->input->post('dato_1',TRUE);
-      $nomare = $this->input->post('dato_2',TRUE);
+      $desare = $this->input->post('dato_2',TRUE);
            
-      if (empty($nomare))
+      if (empty($desare))
         exit(json_encode(array('result'=>FALSE, 'mensaje'=>'Ingrese una área')));
            
-      $areas = $this->areas_m->grabar_actualizar($ideare, $nomare);
+      $areas = $this->areas_m->grabar_actualizar($ideare, $desare);
               
       if ($areas) 
         exit(json_encode(array(
@@ -173,7 +151,7 @@ class Areas extends CMS_Controller
     else
       redirect($this->url);
   }
-   
+  
   public function eliminar()
   {
     $controlador = $this->permisos_controlador($this->nomsis,$this->nommen,$this->nomsubmen,$this->estsubmen,$this->iderol);
@@ -192,5 +170,4 @@ class Areas extends CMS_Controller
     else
       redirect($this->url);
   } 
-*/
 }

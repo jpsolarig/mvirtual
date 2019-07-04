@@ -33,20 +33,19 @@ class Areas_m extends CI_Model
       return false;
   }
   
-  /*  
   public function actualizar($id) 
   {
     if (empty($id))
       return FALSE;
     return $this->db_e->where(array('ideare' => $id))->get('t_areas')->row();
   }    
-    
-  public function grabar_actualizar($ideare, $nomare) {
-    $query = array('nomare'=>strtoupper($nomare));
+  
+  public function grabar_actualizar($ideare, $desare) {
+    $query = array('desare'=>strtoupper($desare));
     return $this->db_e->where('ideare', $ideare)
                      ->update('t_areas', $query);
   }
-   
+  
   public function eliminar_buscar_relacion($ideare) 
   {
     if (empty($ideare))
@@ -61,6 +60,5 @@ class Areas_m extends CI_Model
     return $this->db_e->where('ideare',$ideare)
       ->delete('t_areas');
   }    
-   * 
-   */
+  
 }

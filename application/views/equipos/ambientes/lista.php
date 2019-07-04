@@ -12,6 +12,8 @@
               <tr>
                 <th><span class="ltitulo">N</span></th>
                 <th><span class="ltitulo">AREAS</span></th>
+                <th><span class="ltitulo">AMBIENTES</span></th>
+                <th><span class="ltitulo">DESCRIPCION</span></th>
                 <?php $this->load->view('comun/nav_tabla'); ?>
               </tr>
             </thead>
@@ -19,7 +21,9 @@
               <?php $i=1; for ($x=0; $x < count($lis) ; $x++) { ?>
                 <tr>
                   <td><span class="ldato"><?php echo $i;?></span></td>
-                  <td><span class="ldato"><?php echo $lis[$x]-> desare?></span></td>
+                  <td><span class="ldato"><?php echo $lis[$x]->desare?></span></td>
+                  <td><span class="ldato"><?php echo $lis[$x]-> nomamb?></span></td>
+                  <td><span class="ldato"><?php echo $lis[$x]-> desamb?></span></td>
                   <?php  if ($peract == 1): ?>
                     <td class="tdact">
                       <a  class="ideact" href="" data-valor="<?php echo $lis[$x]->ideare;?>">

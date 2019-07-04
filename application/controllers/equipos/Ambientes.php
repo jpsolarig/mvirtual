@@ -7,7 +7,7 @@ class Ambientes extends CMS_Controller
     parent::__construct();
     $this->titulo = 'Ambientes';
     $this->nomsis = 'equipos';
-    $this->nommen = 'Areas';
+    $this->nommen = 'Lugares';
     $this->nomsubmen = 'Ambientes';
     $this->estsis = TRUE;
     $this->estmen = TRUE;
@@ -45,7 +45,6 @@ class Ambientes extends CMS_Controller
         $lista = $this->ambientes_m->listar();
       else
         $lista = $this->ambientes_m->listar_ide($valor);
-            
       $this->data = array(
         'url' => $this->url,
         'titulo' => $this->titulo,
@@ -53,26 +52,25 @@ class Ambientes extends CMS_Controller
         'submenus' => $submenus,
         'lis' => $lista,
         'selare' => $selare,
-        
         'lista' => $this->url . 'lista',
         'insertar' => $this->url . 'insertar',
         'exportar' => $this->url . 'exportar',
         'actualizar' => $this->url . 'actualizar',
-      
         'perimp' => $controlador['perimp'],
         'perins' => $controlador['perins'],
         'perexp' => $controlador['perexp'],
         'peract' => $controlador['peract'],
         'pereli' => $controlador['pereli'],
-      
         'jss' => array(
-        'js/'.$this->url.'lista.js',
-        'js/'.$this->url.'insertar.js',
-        'js/'.$this->url.'exportar.js',
-        'js/'.$this->url.'actualizar.js',
-        'js/'.$this->url.'eliminar.js')
+          'js/'.$this->url.'lista1.js',
+          'js/'.$this->url.'lista.js',
+          'js/'.$this->url.'insertar.js',
+          'js/'.$this->url.'exportar.js',
+          'js/'.$this->url.'actualizar.js',
+          'js/'.$this->url.'eliminar.js'),
+        'csss' => array(
+          'css/'.$this->url.'lista.css'),  
       );
-                
       if ($this->session->userdata('esta_conectado') && $sistema['estsis'] == TRUE && $controlador['estsubmen'] == TRUE)
         $this->load->view('plantilla', $this->data);
       else
@@ -80,6 +78,7 @@ class Ambientes extends CMS_Controller
     }
   }
 
+  /*
   public function insertar() 
   {
     $controlador = $this->permisos_controlador($this->nomsis, $this->nommen, $this->nomsubmen, $this->estsubmen, $this->iderol);
@@ -216,6 +215,6 @@ class Ambientes extends CMS_Controller
       else
          redirect($this->url);
    }    
-
+*/
 }
 

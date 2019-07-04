@@ -9,41 +9,9 @@
         <form action="" method="POST" role="form" autocomplete="off">
           <input name="dato_1" id="dato_1" type="hidden" >
           <div class="form-group text-primary input-group-sm">
-            <label for=""><i class="fa fa-pencil"></i> Nombre del sistema</label>
-            <input name="dato_2" id="dato_2" type="text" maxlength="20" class="form-control" style="font-weight: bold" placeholder="Nombre del Sistema" disabled>
+            <label for=""><i class="fa fa-pencil"></i> Descripcion del area</label>
+            <input name="dato_2" id="dato_2" type="text" maxlength="20" class="form-control" style="font-weight: bold" placeholder="Nombre del Sistema">
           </div>
-          <div class="form-group text-primary input-group-sm">
-            <label for=""><i class="fa fa-pencil"></i> Descripción del sistema</label>
-            <input name="dato_3" id="dato_3" type="text" maxlength="25" class="form-control" style="font-weight: bold" placeholder="Descripción del Sistema" autofocus="">
-          </div>
-          <div class="form-group text-primary input-group-sm">
-            <label for=""><i class="fa fa-pencil"></i> Url del sistema</label>
-            <input name="dato_4" id="dato_4" type="text"  maxlength="30" class="form-control" style="font-weight: bold" placeholder="Url del Sistema">
-          </div>
-          <div class="form-group text-primary input-group-sm">
-            <label for=""><i class="fa fa-pencil"></i> Orden</label>
-            <input name="dato_5" id="dato_5" type="text" maxlength="3" class="form-control" style="font-weight: bold" placeholder="Orden">
-          </div>
-          <div class="form-group text-primary input-group-sm">
-            <label for=""><i class="fa fa-pencil"></i> Color</label>
-            <select name="dato6" id="dato_6" class="form-control" style="font-weight: bold">
-              <option value="0" selected="">SELECCIONAR</option>
-              <?php for ($x=0; $x < count($selcol) ; $x++) {
-                echo '<option class="',$selcol[$x]->descol,'" value="',$selcol[$x]->idecol,'" >',$selcol[$x]->descol,'</option>';
-              }?>                                     
-            </select>
-          </div>
-          
-          <div class="form-group text-primary input-group-sm">
-            <label for="" ><i class="fa fa-pencil"></i> Iconos</label>
-            <select name="dato7" id="dato_7" class="form-control" style="font-weight: bold">
-              <option value="0" >SELECCIONAR</option>
-              <?php for ($x=0; $x < count($selico) ; $x++) {
-                echo '<option class="',$selico[$x]->nomico,'" value="',$selico[$x]->ideico,'" >',$selico[$x]->nomico,'</option>';
-              }?>                                     
-            </select>
-          </div>   
-          
           <div class="errores">	</div>
         </form>
       </div>
